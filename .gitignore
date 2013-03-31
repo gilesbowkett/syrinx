@@ -2,4 +2,5 @@
 .ruby-version
 Gemfile.lock
 *.csv
+.since_id
 
