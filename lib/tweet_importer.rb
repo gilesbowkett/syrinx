@@ -4,7 +4,7 @@ class TweetImporter
   attr_accessor :tweets
 
   def parse(attributes)
-    ImportedTweet.create(attributes)
+    Tweet.create(attributes)
   end
 
   def import!

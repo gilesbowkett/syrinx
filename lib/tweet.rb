@@ -1,4 +1,4 @@
-class ImportedTweet < Struct.new(
+class Tweet < Struct.new(
   :id,
   :timestamp,
   :username,

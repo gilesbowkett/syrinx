@@ -1,5 +1,5 @@
 require_relative '../lib/tweet_importer'
-require_relative '../lib/imported_tweet'
+require_relative '../lib/tweet'
 
 describe TweetImporter do
 
@@ -27,14 +27,14 @@ describe TweetImporter do
 
   it "parses tweets from CSV lines" do
     imported = @tweet_importer.parse(@line)
-    imported.should be_instance_of ImportedTweet
+    imported.should be_instance_of Tweet
     imported.to_h.should == @attributes
   end
 
   it "imports tweets from a CSV file" do
     CSV.stub(:read).with("since.csv") { [@line] }
-    imported_tweets = @tweet_importer.import!
-    imported_tweets[0].should be_instance_of ImportedTweet
+    tweets = @tweet_importer.import!
+    tweets[0].should be_instance_of Tweet
   end
 
   class TweetRecord; end
