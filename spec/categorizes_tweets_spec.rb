@@ -60,6 +60,7 @@ describe CategorizesTweets do
       'gilesgoatboy',
       'using ruby to make music!'
     ])
+
     categorized_tweets = @categorizes_tweets.categorize!(ruby_music_tweet)
     categorized_tweets.should == {:ruby => [ruby_music_tweet], :music => [ruby_music_tweet]}
   end
