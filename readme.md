@@ -66,3 +66,8 @@ represent some degree of compromise between the desires to write fast,
 readable, clean code; to write it quickly; and to deploy something
 immediately.
 
+## core extensions
+
+This code monkey-patches Array, giving every array the ability to
+calculate its similarity to other arrays.
+
