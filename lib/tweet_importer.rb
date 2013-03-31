@@ -1,6 +1,7 @@
 require 'csv'
 
 class TweetImporter
+  attr_accessor :tweets
 
   def self.parse(attributes)
     ImportedTweet.new(
@@ -14,6 +15,12 @@ class TweetImporter
   def self.import!
     CSV.read("since.csv").collect do |line|
       TweetImporter.parse(line)
+    end
+  end
+
+  def persist!
+    tweets.each do |tweet|
+      TweetRecord.create(tweet.to_h)
     end
   end
 
