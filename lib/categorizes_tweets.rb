@@ -1,5 +1,3 @@
-require 'ap'
-
 class CategorizesTweets
   attr_accessor :category_keywords
 
