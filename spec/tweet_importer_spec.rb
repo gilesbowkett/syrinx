@@ -22,7 +22,7 @@ describe TweetImporter do
     imported.text.should       == @text
   end
 
-  it "gets its CSV lines from a CSV file" do
+  it "imports tweets from a CSV file" do
     CSV.stub(:read).with("since.csv") { [@line] }
     imported_tweets = TweetImporter.import!
     imported_tweets[0].should be_instance_of ImportedTweet
