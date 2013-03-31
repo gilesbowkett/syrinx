@@ -52,7 +52,7 @@ describe CategorizesTweets do
 
   # this kind of redundancy doesn't bother me. if I go to Twitter because I'm curious
   # about Ruby news, and I see news about Ruby and music, that's cool with me. same
-  # thing if I wanted Ruby news. so for now this is fine.
+  # thing if I wanted music news. so for now this is fine.
   it "permits set overlap" do
     ruby_music_tweet = Tweet.create([
       '318169735143493632',
