@@ -3,7 +3,7 @@ require 'csv'
 class TweetImporter
   attr_accessor :tweets
 
-  def self.parse(attributes)
+  def parse(attributes)
     ImportedTweet.new(
       attributes[0].to_i,
       attributes[1],
@@ -12,9 +12,9 @@ class TweetImporter
     )
   end
 
-  def self.import!
+  def import!
     CSV.read("since.csv").collect do |line|
-      TweetImporter.parse(line)
+      parse(line)
     end
   end
 
