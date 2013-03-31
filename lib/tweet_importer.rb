@@ -1,16 +1,26 @@
+require 'csv'
+
 class TweetImporter
+
   def self.parse(attributes)
     ImportedTweet.new(
-      :id         => attributes[0],
-      :timestamp  => attributes[1],
-      :username   => attributes[2],
-      :text       => attributes[3]
+      attributes[0].to_i,
+      attributes[1],
+      attributes[2],
+      attributes[3]
     )
   end
+
+  def self.import!
+    CSV.read("since.csv")
+  end
+
 end
 
-class ImportedTweet < Struct.new(:id,
-                                 :timestamp,
-                                 :username,
-                                 :text); end
+class ImportedTweet < Struct.new(
+  :id,
+  :timestamp,
+  :username,
+  :text)
+end
 
