@@ -57,7 +57,7 @@ all and being totally plugged into it at all times.
 
 ## weird spec/lib design
 
-I wanted to experiment with the design style shown in the Destroy All Software
+I want to experiment with the design style shown in the Destroy All Software
 ['Sucks/Rocks'](https://www.destroyallsoftware.com/screencasts/catalog/sucks-rocks-1-the-rails-app)
 series of screencasts. Since this app is in part a design experiment,
 it's going to have some quirks. Also, it's not exactly the style in
