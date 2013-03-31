@@ -12,7 +12,9 @@ class TweetImporter
   end
 
   def self.import!
-    CSV.read("since.csv")
+    CSV.read("since.csv").collect do |line|
+      TweetImporter.parse(line)
+    end
   end
 
 end
