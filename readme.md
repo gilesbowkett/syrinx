@@ -11,10 +11,8 @@ concentration and productivity.
 weird design
 ============
 
-This system uses `ActiveRecord` but does not follow Rails
-conventions about how to use it. This is partly because it
-isn't a Rails app, but mainly because I wanted to experiment
-with the design style shown in the Destroy All Software
+I wanted to experiment with the design style shown in the Destroy All Software
 ['Sucks/Rocks'](https://www.destroyallsoftware.com/screencasts/catalog/sucks-rocks-1-the-rails-app)
-series of screencasts.
+series of screencasts. Since this app is in part a design experiment,
+it's going to have some quirks.
 
