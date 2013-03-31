@@ -20,8 +20,8 @@ describe CategorizesTweets do
     ])
 
     @categorizes_tweets = CategorizesTweets.new
-    @categorizes_tweets.categories = {:ruby  => "ruby",
-                                      :music => "music"}
+    @categorizes_tweets.category_keywords = {:ruby  => ["ruby"],
+                                             :music => ["music"]}
   end
 
   it "performs trivial string matching" do
@@ -35,6 +35,19 @@ describe CategorizesTweets do
   it "works against mulitple tweets" do
     categorized_tweets = @categorizes_tweets.categorize!(@ruby_tweet, @music_tweet)
     categorized_tweets.should == {:ruby => [@ruby_tweet], :music => [@music_tweet]}
+  end
+
+  it "works against mulitple terms" do
+    rails_tweet = ImportedTweet.create([
+      '318169735143493632',
+      '2013-03-31 01:15:50 +0000',
+      'gilesgoatboy',
+      'rails is a great programming language!'
+    ])
+    @categorizes_tweets.category_keywords = {:ruby  => ["ruby", "rails"]}
+
+    categorized_tweets = @categorizes_tweets.categorize!(rails_tweet)
+    categorized_tweets.should == {:ruby => [rails_tweet]}
   end
 
   # this kind of redundancy doesn't bother me. if I go to Twitter because I'm curious
