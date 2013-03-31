@@ -4,12 +4,7 @@ class TweetImporter
   attr_accessor :tweets
 
   def parse(attributes)
-    ImportedTweet.new(
-      attributes[0].to_i,
-      attributes[1],
-      attributes[2],
-      attributes[3]
-    )
+    ImportedTweet.create(attributes)
   end
 
   def import!
@@ -24,12 +19,5 @@ class TweetImporter
     end
   end
 
-end
-
-class ImportedTweet < Struct.new(
-  :id,
-  :timestamp,
-  :username,
-  :text)
 end
 

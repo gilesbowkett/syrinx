@@ -1,4 +1,5 @@
 require_relative '../lib/tweet_importer'
+require_relative '../lib/imported_tweet'
 
 describe TweetImporter do
 
