@@ -32,7 +32,7 @@ describe CategorizesTweets do
     categorized_tweets.should == {:music => [@music_tweet]}
   end
 
-  it "works against mulitple tweets" do
+  it "works against multiple tweets" do
     categorized_tweets = @categorizes_tweets.categorize!(@ruby_tweet, @music_tweet)
     categorized_tweets.should == {:ruby => [@ruby_tweet], :music => [@music_tweet]}
   end
