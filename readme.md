@@ -55,14 +55,6 @@ dive in and use Twitter for trivial chatter all day long. My hope is
 that Syrinx will operate as a middle ground between not using Twitter at
 all and being totally plugged into it at all times.
 
-## weird spec/lib design
-
-I want to experiment with the design style shown in the Destroy All Software
-['Sucks/Rocks'](https://www.destroyallsoftware.com/screencasts/catalog/sucks-rocks-1-the-rails-app)
-series of screencasts. Since this app is in part a design experiment,
-it's going to have some quirks. It's not exactly the style in the
-screencasts, but definitely a style inspired by them.
-
 ## core extensions
 
 This code monkey-patches Array, giving every array the ability to
