@@ -4,14 +4,14 @@ describe CompressesDuplication do
 
   before do
 
-    @tweet = Tweet.create([
+    @tweet = Tweet.new([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'hello world'
     ])
 
-    @retweet = Tweet.create([
+    @retweet = Tweet.new([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'stalker',

@@ -5,14 +5,14 @@ describe CategorizesTweets do
 
   before do
 
-    @ruby_tweet = Tweet.create([
+    @ruby_tweet = Tweet.new([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'ruby ruby ruby!'
     ])
 
-    @music_tweet = Tweet.create([
+    @music_tweet = Tweet.new([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
@@ -38,7 +38,7 @@ describe CategorizesTweets do
   end
 
   it "works against mulitple terms" do
-    rails_tweet = Tweet.create([
+    rails_tweet = Tweet.new([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
@@ -54,7 +54,7 @@ describe CategorizesTweets do
   # about Ruby news, and I see news about Ruby and music, that's cool with me. same
   # thing if I wanted music news. so for now this is fine.
   it "permits set overlap" do
-    ruby_music_tweet = Tweet.create([
+    ruby_music_tweet = Tweet.new([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
