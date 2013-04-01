@@ -8,19 +8,5 @@ describe Array do
     end
     memo.should == [6, 8, 6, 12, 8, 12]
   end
-
-  it "can be used to implement a sort" do
-    biggest = [2,3].comparing_collect do |element1, element2|
-      element1 > element2
-    end
-    biggest.should == [3]
-  end
-
-  it "shouldn't be used to implement a sort" do
-    biggest = [2,3,5].comparing_collect do |element1, element2|
-      element1 > element2
-    end
-    biggest.should == [3,5]
-  end
 end
 
