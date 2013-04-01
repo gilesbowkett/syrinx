@@ -73,8 +73,40 @@ describe CompressesDuplication do
       @tweet.retweets.should == [@retweet]
     end
 
-    # integration spec?
-    it "finds multiple RT-ed tweets (and their RTs)"
+    context 'more than just one or two tweets' do
+      it "assigns multiple RTs" do
+        @additional_retweet = Tweet.new([
+          '318169735143493632',
+          '2013-03-31 01:15:50 +0000',
+          'parrot',
+          'RT @gilesgoatboy: hello world!'
+        ])
+        tweets = [@tweet, @retweet, @additional_retweet]
+
+        CompressesDuplication.filter(tweets)
+        @tweet.retweets.should == [@retweet, @additional_retweet]
+      end
+
+      it "assigns RTs to multiple tweets" do
+        @other_tweet = Tweet.new([
+          '318169735143493632',
+          '2013-03-31 01:15:50 +0000',
+          'tree',
+          'current status: standing'
+        ])
+        @other_retweet = Tweet.new([
+          '318169735143493632',
+          '2013-03-31 01:15:50 +0000',
+          'fanoftrees',
+          'RT @tree current status: standing'
+        ])
+        tweets = [@tweet, @retweet, @other_tweet, @other_retweet]
+
+        CompressesDuplication.filter(tweets)
+        @tweet.retweets.should == [@retweet]
+        @other_tweet.retweets.should == [@other_retweet]
+      end
+    end
   end
 
 end
