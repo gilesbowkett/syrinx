@@ -60,11 +60,8 @@ all and being totally plugged into it at all times.
 I want to experiment with the design style shown in the Destroy All Software
 ['Sucks/Rocks'](https://www.destroyallsoftware.com/screencasts/catalog/sucks-rocks-1-the-rails-app)
 series of screencasts. Since this app is in part a design experiment,
-it's going to have some quirks. Also, it's not exactly the style in
-the screencasts, but definitely a style inspired by them; and it does
-represent some degree of compromise between the desires to write fast,
-readable, clean code; to write it quickly; and to deploy something
-immediately.
+it's going to have some quirks. It's not exactly the style in the
+screencasts, but definitely a style inspired by them.
 
 ## core extensions
 
