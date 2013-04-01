@@ -1,15 +1,15 @@
 class LinkFilter
 
-  def self.from(text)
+  def self.extract_link(text)
     url_match = text.match(/(http:\/\/t.co\S+)/)
     if url_match
       url_match[0]
     end
   end
 
-  def self.collect(tweets)
+  def self.collect_tweets_with_links(tweets)
     (tweets.collect do |tweet|
-      tweet if from(tweet.text)
+      tweet if extract_link(tweet.text)
     end).compact
   end
 

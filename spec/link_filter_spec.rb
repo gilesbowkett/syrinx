@@ -14,12 +14,12 @@ describe LinkFilter do
   end
 
   it "extracts links" do
-    LinkFilter.from(@tweet.text).should == 'http://t.co/1KXSm9ED1G'
+    LinkFilter.extract_link(@tweet.text).should == 'http://t.co/1KXSm9ED1G'
   end
 
   it "survives random remarks" do
     @tweet.text = "marbles"
-    LinkFilter.from(@tweet.text).should be_nil
+    LinkFilter.extract_link(@tweet.text).should be_nil
   end
 
   it "collects tweets with links" do
@@ -29,7 +29,7 @@ describe LinkFilter do
       'adafruit',
       'I like turtles'
     ])
-    LinkFilter.collect([@tweet, other_tweet]).should == [@tweet]
+    LinkFilter.collect_tweets_with_links([@tweet, other_tweet]).should == [@tweet]
   end
 
 end
