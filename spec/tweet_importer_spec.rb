@@ -17,7 +17,7 @@ describe TweetImporter do
              @text]
 
     @attributes = {
-      :id        =>  318169735143493632,
+      :id        =>  '318169735143493632',
       :timestamp => '2013-03-31 01:15:50 +0000',
       :username  => 'gilesgoatboy',
       :text      => @text
