@@ -7,5 +7,11 @@ class LinkFilter
     end
   end
 
+  def self.collect(tweets)
+    (tweets.collect do |tweet|
+      tweet if from(tweet.text)
+    end).compact
+  end
+
 end
 
