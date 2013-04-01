@@ -46,7 +46,7 @@ Hacker News called [Hacker Newspaper](http://hacker-newspaper.gilesb.com/),
 because I think aggregator sites have problems of their own. I avoid
 chat software and IRC channels, because most research on productivity
 shows that you see very strong benefits when you're able to concentrate.
-But there's limits to the value of that; you don't want to be totally
+But there are limits to the value of that; you don't want to be totally
 isolationist.
 
 I hosts-ban Twitter about once a month, redirecting the domain to
