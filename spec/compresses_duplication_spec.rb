@@ -3,18 +3,21 @@ require_relative '../lib/compress_duplication'
 describe CompressesDuplication do
 
   before do
+
     @tweet = Tweet.create([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'hello world'
     ])
+
     @retweet = Tweet.create([
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'stalker',
       'RT @gilesgoatboy: hello world'
     ])
+
   end
 
   context "identifying retweets" do
@@ -52,8 +55,17 @@ describe CompressesDuplication do
 
   end
 
+  it "somehow ensures the invisibility of cookie-cutter tweets" do
+    CompressesDuplication.filter([@tweet, @retweet])
+    @retweet.cookie_cutter.should be_true
+  end
+
+  it "does not mislabel original tweets as retweets" do
+    CompressesDuplication.filter([@tweet, @retweet])
+    @tweet.cookie_cutter.should be_false
+  end
+
   it "tells a Tweet how many RTs it has" do
-    pending
     tweets = [@tweet, @retweet]
 
     CompressesDuplication.filter(tweets)
@@ -64,17 +76,8 @@ describe CompressesDuplication do
 
 
 
-  it "tells a Tweet how many similar tweets it has"
-    # maybe with `tweet.similar = 10`
-    # or `tweet.similar_tweets = [@similar_tweet]`
-    # the idea being that RTs are in the 80-90% similar range,
-    # and 60-80% is worth knowing about too, at least for now
-
-  it "somehow ensures the invisibility of cookie-cutter tweets"
-    # maybe with `tweet.cookie_cutter = true`
-    # or even `tweet.parent = @other_tweet`
-
-  it "finds multiple RT-ed tweets (and their RTs) in an array"
+  # integration spec?
+  it "finds multiple RT-ed tweets (and their RTs)"
 
 end
 

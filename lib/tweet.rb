@@ -4,15 +4,17 @@ class Tweet < Struct.new(
   :username,
   :text)
 
-  attr_accessor :retweets
+  attr_accessor :retweets, :cookie_cutter
 
   def self.create(attributes)
-    new(
+    tweet = new(
       attributes[0].to_i,
       attributes[1],
       attributes[2],
       attributes[3]
     )
+    tweet.retweets = []
+    tweet
   end
 end
 

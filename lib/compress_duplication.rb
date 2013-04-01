@@ -14,6 +14,12 @@ class CompressesDuplication
   end
 
   def self.filter(tweets)
+    tweets.stepwise do |tweet1, tweet2|
+      if retweet?(tweet1, tweet2)
+        tweet2.cookie_cutter = true
+        tweet1.retweets << tweet2
+      end
+    end
   end
 
 end
