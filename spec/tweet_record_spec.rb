@@ -1,8 +1,12 @@
 describe "TweetRecord" do
 
-  it "isolates ActiveRecord"
-    # UserCategoryRecord should do the same
+  it "isolates ActiveRecord" do
+    pending "adding ActiveRecord later"
+  end
 
-  it "purges stale tweets"
+  it "purges stale tweets" do
+    pending "adding ActiveRecord later"
+  end
 
 end
+
