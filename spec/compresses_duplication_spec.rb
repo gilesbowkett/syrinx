@@ -55,29 +55,27 @@ describe CompressesDuplication do
 
   end
 
-  it "somehow ensures the invisibility of cookie-cutter tweets" do
-    CompressesDuplication.filter([@tweet, @retweet])
-    @retweet.cookie_cutter.should be_true
+  context "#filter" do
+    it "somehow ensures the invisibility of cookie-cutter tweets" do
+      CompressesDuplication.filter([@tweet, @retweet])
+      @retweet.cookie_cutter.should be_true
+    end
+
+    it "does not mislabel original tweets as retweets" do
+      CompressesDuplication.filter([@tweet, @retweet])
+      @tweet.cookie_cutter.should be_false
+    end
+
+    it "tells a Tweet how many RTs it has" do
+      tweets = [@tweet, @retweet]
+
+      CompressesDuplication.filter(tweets)
+      @tweet.retweets.should == [@retweet]
+    end
+
+    # integration spec?
+    it "finds multiple RT-ed tweets (and their RTs)"
   end
-
-  it "does not mislabel original tweets as retweets" do
-    CompressesDuplication.filter([@tweet, @retweet])
-    @tweet.cookie_cutter.should be_false
-  end
-
-  it "tells a Tweet how many RTs it has" do
-    tweets = [@tweet, @retweet]
-
-    CompressesDuplication.filter(tweets)
-    @tweet.retweets.should == [@retweet]
-  end
-
-
-
-
-
-  # integration spec?
-  it "finds multiple RT-ed tweets (and their RTs)"
 
 end
 
