@@ -3,21 +3,20 @@ class CategorizesTweets
 
   # FIXME: ugh
   def categorize!(*tweets)
-    categorized = {}
-    tweets.each do |tweet|
+    categorized = tweets.inject({}) do |memo, tweet|
       category_keywords.each do |category, qualifying_terms|
         qualifying_terms.each do |qualifying_term|
           if tweet.text.include? qualifying_term
-            if categorized[category]
-              categorized[category] << tweet
+            if memo[category]
+              memo[category] << tweet
             else
-              categorized[category] = [tweet]
+              memo[category] = [tweet]
             end
           end
         end
       end
+      memo
     end
-    categorized
   end
 
 end
