@@ -1,4 +1,10 @@
 class Category < Struct.new(:name, :qualifying_terms)
+  def include?(tweet)
+    qualifying_terms.each do |qualifying_term|
+      return true if tweet.text.include? qualifying_term
+    end
+    return false
+  end
 end
 
 class CategorizesTweets
@@ -10,13 +16,11 @@ class CategorizesTweets
   def categorize!(*tweets)
     categorized = tweets.inject({}) do |memo, tweet|
       categories.each do |category|
-        category.qualifying_terms.each do |qualifying_term|
-          if tweet.text.include? qualifying_term
-            if memo[category.name]
-              memo[category.name] << tweet
-            else
-              memo[category.name] = [tweet]
-            end
+        if category.include? tweet
+          if memo[category.name]
+            memo[category.name] << tweet
+          else
+            memo[category.name] = [tweet]
           end
         end
       end
