@@ -6,7 +6,7 @@ class Tweet < Struct.new(
 
   attr_accessor :retweets, :cookie_cutter
 
-  def initialize(attributes)
+  def initialize(*attributes)
     super(*attributes)
     self.retweets = []
     self

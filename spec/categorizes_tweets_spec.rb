@@ -5,19 +5,19 @@ describe CategorizesTweets do
 
   before do
 
-    @ruby_tweet = Tweet.new([
+    @ruby_tweet = Tweet.new(
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'ruby ruby ruby!'
-    ])
+    )
 
-    @music_tweet = Tweet.new([
+    @music_tweet = Tweet.new(
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'music music music!'
-    ])
+    )
 
     @categorizes_tweets = CategorizesTweets.new
     @categorizes_tweets.category_keywords = {:ruby  => ["ruby"],
@@ -39,12 +39,12 @@ describe CategorizesTweets do
 
   context "against multiple terms" do
     before do
-      @rails_tweet = Tweet.new([
+      @rails_tweet = Tweet.new(
         '318169735143493632',
         '2013-03-31 01:15:50 +0000',
         'gilesgoatboy',
         'rails is a great programming language!'
-      ])
+      )
       @categorizes_tweets.category_keywords = {:ruby  => ["ruby", "rails"],
                                                :music => ["music"]}
     end
@@ -64,12 +64,12 @@ describe CategorizesTweets do
   # about Ruby news, and I see news about Ruby and music, that's cool with me. same
   # thing if I wanted music news. so for now this is fine.
   it "permits set overlap" do
-    ruby_music_tweet = Tweet.new([
+    ruby_music_tweet = Tweet.new(
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'using ruby to make music!'
-    ])
+    )
 
     categorized_tweets = @categorizes_tweets.categorize!(ruby_music_tweet)
     categorized_tweets.should == {:ruby => [ruby_music_tweet], :music => [ruby_music_tweet]}

@@ -4,19 +4,19 @@ describe CompressesDuplication do
 
   before do
 
-    @tweet = Tweet.new([
+    @tweet = Tweet.new(
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'gilesgoatboy',
       'hello world'
-    ])
+    )
 
-    @retweet = Tweet.new([
+    @retweet = Tweet.new(
       '318169735143493632',
       '2013-03-31 01:15:50 +0000',
       'stalker',
       'RT @gilesgoatboy: hello world'
-    ])
+    )
 
   end
 
@@ -75,12 +75,12 @@ describe CompressesDuplication do
 
     context 'more than just one or two tweets' do
       it "assigns multiple RTs" do
-        @additional_retweet = Tweet.new([
+        @additional_retweet = Tweet.new(
           '318169735143493632',
           '2013-03-31 01:15:50 +0000',
           'parrot',
           'RT @gilesgoatboy: hello world!'
-        ])
+        )
         tweets = [@tweet, @retweet, @additional_retweet]
 
         CompressesDuplication.filter(tweets)
@@ -88,18 +88,18 @@ describe CompressesDuplication do
       end
 
       it "assigns RTs to multiple tweets" do
-        @other_tweet = Tweet.new([
+        @other_tweet = Tweet.new(
           '318169735143493632',
           '2013-03-31 01:15:50 +0000',
           'tree',
           'current status: standing'
-        ])
-        @other_retweet = Tweet.new([
+        )
+        @other_retweet = Tweet.new(
           '318169735143493632',
           '2013-03-31 01:15:50 +0000',
           'fanoftrees',
           'RT @tree current status: standing'
-        ])
+        )
         tweets = [@tweet, @retweet, @other_tweet, @other_retweet]
 
         CompressesDuplication.filter(tweets)

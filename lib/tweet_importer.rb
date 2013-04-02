@@ -3,8 +3,8 @@ require 'csv'
 class TweetImporter
   attr_accessor :tweets
 
-  def parse(attributes)
-    Tweet.new(attributes)
+  def parse(*attributes)
+    Tweet.new(*attributes)
   end
 
   def import!

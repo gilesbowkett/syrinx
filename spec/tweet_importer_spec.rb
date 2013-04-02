@@ -26,7 +26,7 @@ describe TweetImporter do
   end
 
   it "parses tweets from CSV lines" do
-    imported = @tweet_importer.parse(@line)
+    imported = @tweet_importer.parse(*@line)
     imported.should be_instance_of Tweet
     imported.to_h.should == @attributes
   end
@@ -40,7 +40,7 @@ describe TweetImporter do
   class TweetRecord; end
 
   it "stores tweets in a database" do
-    @tweet_importer.tweets = [@tweet_importer.parse(@line)]
+    @tweet_importer.tweets = [@tweet_importer.parse(*@line)]
     TweetRecord.should_receive(:create).with(@attributes)
     @tweet_importer.persist!
   end

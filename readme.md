@@ -50,6 +50,5 @@ are a bit bigger.
 ## Fixmes
 
 * Fixtures in code, almost
-* Custom initializer on `Tweet`, probably for no good reason
 * `CategorizesTweets` features several nested iterators `>.<`
 
