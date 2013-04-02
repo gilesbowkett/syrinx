@@ -14,5 +14,9 @@ describe Tweet do
     @tweet.url.should == 'https://twitter.com/adafruit/status/318713868924903424'
   end
 
+  it "refuses to be instantiated with an array for :id" do
+    expect { @tweet = Tweet.new(["asdf", "asdf"]) }.to raise_exception "instantiation error"
+  end
+
 end
 

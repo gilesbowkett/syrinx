@@ -9,7 +9,7 @@ class TweetImporter
 
   def import!
     CSV.read("since.csv").collect do |line|
-      parse(line)
+      parse(*line)
     end
   end
 
