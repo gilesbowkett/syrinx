@@ -1,3 +1,5 @@
+# toy example only. see readme.md for more info
+
 require "./lib/tweet"
 require "./lib/tweet_importer"
 require "./lib/category"
