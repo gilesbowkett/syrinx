@@ -1,3 +1,6 @@
+class Category < Struct.new(:name, :qualifying_terms)
+end
+
 class CategorizesTweets
   attr_accessor :categories
 
@@ -6,13 +9,13 @@ class CategorizesTweets
   # you replace the :categories Hash with Categories instead.
   def categorize!(*tweets)
     categorized = tweets.inject({}) do |memo, tweet|
-      categories.each do |category, qualifying_terms|
-        qualifying_terms.each do |qualifying_term|
+      categories.each do |category|
+        category.qualifying_terms.each do |qualifying_term|
           if tweet.text.include? qualifying_term
-            if memo[category]
-              memo[category] << tweet
+            if memo[category.name]
+              memo[category.name] << tweet
             else
-              memo[category] = [tweet]
+              memo[category.name] = [tweet]
             end
           end
         end

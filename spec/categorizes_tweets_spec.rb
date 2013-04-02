@@ -20,8 +20,9 @@ describe CategorizesTweets do
     )
 
     @categorizes_tweets = CategorizesTweets.new
-    @categorizes_tweets.categories = {:ruby  => ["ruby"],
-                                      :music => ["music"]}
+    ruby = Category.new(:ruby, ["ruby"])
+    music = Category.new(:music, ["music"])
+    @categorizes_tweets.categories = [ruby, music]
   end
 
   it "performs trivial string matching" do
@@ -45,8 +46,9 @@ describe CategorizesTweets do
         'gilesgoatboy',
         'rails is a great programming language!'
       )
-      @categorizes_tweets.categories = {:ruby  => ["ruby", "rails"],
-                                        :music => ["music"]}
+      ruby = Category.new(:ruby, ["ruby", "rails"])
+      music = Category.new(:music, ["music"])
+      @categorizes_tweets.categories = [ruby, music]
     end
 
     it "works for one tweet" do
