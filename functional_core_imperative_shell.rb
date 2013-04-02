@@ -23,6 +23,7 @@ end
 puts
 puts "new links by category!"
 tweets_with_links.each do |category, tweets|
+  next if tweets.empty?
   puts category
   tweets.each do |tweet|
     puts "  " + LinkFilter.extract_link(tweet.text) + "        (via #{tweet.username})"
