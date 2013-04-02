@@ -4,7 +4,7 @@ describe LinkFilter do
 
   before do
     # FIXME: wait this might be stupid; why not just send it args like normal Struct?
-    @tweet = Tweet.new([ 
+    @tweet = Tweet.new([
       '318713868924903424',
       '2013-04-01 13:18:02 +0000',
       'adafruit',
