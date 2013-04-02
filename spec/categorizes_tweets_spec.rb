@@ -37,17 +37,27 @@ describe CategorizesTweets do
     categorized_tweets.should == {:ruby => [@ruby_tweet], :music => [@music_tweet]}
   end
 
-  it "works against mulitple terms" do
-    rails_tweet = Tweet.new([
-      '318169735143493632',
-      '2013-03-31 01:15:50 +0000',
-      'gilesgoatboy',
-      'rails is a great programming language!'
-    ])
-    @categorizes_tweets.category_keywords = {:ruby  => ["ruby", "rails"]}
+  context "against multiple terms" do
+    before do
+      @rails_tweet = Tweet.new([
+        '318169735143493632',
+        '2013-03-31 01:15:50 +0000',
+        'gilesgoatboy',
+        'rails is a great programming language!'
+      ])
+      @categorizes_tweets.category_keywords = {:ruby  => ["ruby", "rails"],
+                                               :music => ["music"]}
+    end
 
-    categorized_tweets = @categorizes_tweets.categorize!(rails_tweet)
-    categorized_tweets.should == {:ruby => [rails_tweet]}
+    it "works for one tweet" do
+      categorized_tweets = @categorizes_tweets.categorize!(@rails_tweet)
+      categorized_tweets.should == {:ruby => [@rails_tweet]}
+    end
+
+    it "works for multiple tweets" do
+      categorized_tweets = @categorizes_tweets.categorize!(@ruby_tweet, @rails_tweet, @music_tweet)
+      categorized_tweets.should == {:ruby => [@ruby_tweet, @rails_tweet], :music => [@music_tweet]}
+    end
   end
 
   # this kind of redundancy doesn't bother me. if I go to Twitter because I'm curious
