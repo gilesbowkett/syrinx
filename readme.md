@@ -23,7 +23,11 @@ other use cases. Historical analysis of the past 24 hours, also known
 as "the news," was wildly popular throughout the 18th, 19th, and 20th
 centuries, and doesn't seem to be going away.
 
-## Unfinished
+Syrinx should end up like a more stable version of [Hacker
+Newspaper](http://hacker-newspaper.gilesb.com/), but for Twitter, plus
+a few summarization and analysis features.
+
+## Unfinished, experimental
 
 This project's a work in progress. Currently it contains a bunch of
 useful objects for importing and filtering tweets, as well as a simple
@@ -42,4 +46,10 @@ of links along with who tweeted them. The list's sorted into categories,
 which are easy to define in the Ruby script as a constant. It's a simple
 toy example; the code has other capacities and my long-term goals for it
 are a bit bigger.
+
+## Fixmes
+
+* Fixtures in code, almost
+* Custom initializer on `Tweet`, probably for no good reason
+* `CategorizesTweets` features several nested iterators `>.<`
 
