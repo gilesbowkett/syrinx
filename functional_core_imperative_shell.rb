@@ -14,9 +14,9 @@ categorizes_tweets.category_keywords = {:ruby  => ["ruby"],    # FIXME: better t
 categorized = categorizes_tweets.categorize!(*tweets)
 
 # get tweets with links
-tweets_with_links = {}
-categorized.each do |category, tweets|
-  tweets_with_links[category] = LinkFilter.collect_tweets_with_links(tweets)
+tweets_with_links = categorized.inject({}) do |memo, (category, tweets)|
+  memo[category] = LinkFilter.collect_tweets_with_links(tweets)
+  memo
 end
 
 # shell output
