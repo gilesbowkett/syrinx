@@ -1,5 +1,6 @@
 require "./lib/tweet"
 require "./lib/tweet_importer"
+require "./lib/category"
 require "./lib/categorizes_tweets"
 require "./lib/link_filter"
 
@@ -9,8 +10,9 @@ tweets = tweet_importer.import!
 
 # categorize them
 categorizes_tweets = CategorizesTweets.new
-categorizes_tweets.category_keywords = {:ruby  => ["ruby"],
-                                        :music => ["music"]}
+ruby = Category.new(:ruby, ["ruby"])
+music = Category.new(:music, ["music"])
+categorizes_tweets.categories = [ruby, music]
 categorized = categorizes_tweets.categorize!(*tweets)
 
 # get tweets with links
