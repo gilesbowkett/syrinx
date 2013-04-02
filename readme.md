@@ -1,4 +1,4 @@
-# syrinx
+# Syrinx
 
 Syrinx (named after the aspect of avian anatomy which enables
 birds to sing) is an attempt at Twitter filtering, summarization,
