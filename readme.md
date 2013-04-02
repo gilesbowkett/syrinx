@@ -8,6 +8,21 @@ also become an app or a mini-app. Its goal is to act as a drama
 eliminator, an automatically-generated "best of" album, and an aid to
 concentration and productivity.
 
+## Basic plan
+
+* Download tweets with `t` gem
+* Filter, sort, summarize, and categorize
+* Render as HTML
+* Run process hourly
+* Comprehensive hourly summary vs constant updates
+
+When I first thought of this, I planned to call it Twitter Newspaper.
+Twitter the company seems very attuned to the usefulness of its data
+for real-time analysis, but they seem to have a huge blind spot for all
+other use cases. Historical analysis of the past 24 hours, also known
+as "the news," was wildly popular throughout the 18th, 19th, and 20th
+centuries, and doesn't seem to be going away.
+
 ## Unfinished
 
 This project's a work in progress. Currently it contains a bunch of
@@ -24,5 +39,7 @@ If you set `download_tweets.bash` running in a cron job, with the
 permissions necessary to create/edit a file called `since.csv`, you can
 then run `functional_core_imperative_shell.rb` against it to see a list
 of links along with who tweeted them. The list's sorted into categories,
-which are easy to define in the Ruby script as a constant.
+which are easy to define in the Ruby script as a constant. It's a simple
+toy example; the code has other capacities and my long-term goals for it
+are a bit bigger.
 
