@@ -9,8 +9,8 @@ tweets = tweet_importer.import!
 
 # categorize them
 categorizes_tweets = CategorizesTweets.new
-categorizes_tweets.category_keywords = {:ruby  => ["ruby"],    # FIXME: better term list
-                                        :music => ["music"]}   # (this is a toy example)
+categorizes_tweets.category_keywords = {:ruby  => ["ruby"],
+                                        :music => ["music"]}
 categorized = categorizes_tweets.categorize!(*tweets)
 
 # get tweets with links
