@@ -20,8 +20,8 @@ describe CategorizesTweets do
     )
 
     @categorizes_tweets = CategorizesTweets.new
-    @categorizes_tweets.category_keywords = {:ruby  => ["ruby"],
-                                             :music => ["music"]}
+    @categorizes_tweets.categories = {:ruby  => ["ruby"],
+                                      :music => ["music"]}
   end
 
   it "performs trivial string matching" do
@@ -45,8 +45,8 @@ describe CategorizesTweets do
         'gilesgoatboy',
         'rails is a great programming language!'
       )
-      @categorizes_tweets.category_keywords = {:ruby  => ["ruby", "rails"],
-                                               :music => ["music"]}
+      @categorizes_tweets.categories = {:ruby  => ["ruby", "rails"],
+                                        :music => ["music"]}
     end
 
     it "works for one tweet" do
@@ -56,7 +56,8 @@ describe CategorizesTweets do
 
     it "works for multiple tweets" do
       categorized_tweets = @categorizes_tweets.categorize!(@ruby_tweet, @rails_tweet, @music_tweet)
-      categorized_tweets.should == {:ruby => [@ruby_tweet, @rails_tweet], :music => [@music_tweet]}
+      categorized_tweets.should == {:ruby => [@ruby_tweet, @rails_tweet],
+                                    :music => [@music_tweet]}
     end
   end
 
@@ -72,7 +73,8 @@ describe CategorizesTweets do
     )
 
     categorized_tweets = @categorizes_tweets.categorize!(ruby_music_tweet)
-    categorized_tweets.should == {:ruby => [ruby_music_tweet], :music => [ruby_music_tweet]}
+    categorized_tweets.should == {:ruby => [ruby_music_tweet],
+                                  :music => [ruby_music_tweet]}
   end
 
 end
