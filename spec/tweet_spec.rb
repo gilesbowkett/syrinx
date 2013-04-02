@@ -2,7 +2,6 @@ require_relative '../lib/tweet'
 
 describe Tweet do
   before do
-    # FIXME: dry (factory girl -esque)
     @tweet = Tweet.new(
       '318713868924903424',
       '2013-04-01 13:18:02 +0000',
