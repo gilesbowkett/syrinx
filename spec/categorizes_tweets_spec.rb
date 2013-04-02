@@ -47,12 +47,9 @@ describe CategorizesTweets do
     @categorizes_tweets.categories = [ruby, music]
   end
 
-  it "performs trivial string matching" do
+  it "matches literal strings" do
     categorized_tweets = @categorizes_tweets.categorize!(@ruby_tweet)
     categorized_tweets.should == {:ruby => [@ruby_tweet]}
-
-    categorized_tweets = @categorizes_tweets.categorize!(@music_tweet)
-    categorized_tweets.should == {:music => [@music_tweet]}
   end
 
   it "works against multiple tweets" do
