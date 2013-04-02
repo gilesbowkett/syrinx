@@ -11,7 +11,7 @@ tweets_with_links = LinkFilter.collect_tweets_with_links(tweets)
 
 # shell output
 puts
-puts "new links by category!"
+puts "new links!"
 tweets_with_links.each do |tweet|
   puts "  " + LinkFilter.extract_link(tweet.text) + "        (via #{tweet.username})"
 end
