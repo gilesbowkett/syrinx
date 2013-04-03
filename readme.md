@@ -50,5 +50,8 @@ are a bit bigger.
 ## Fixmes
 
 * Fixtures in code, almost
-* `CategorizesTweets` features several nested iterators `>.<`
+
+## Relevant
+
+http://www.economist.com/blogs/freeexchange/2013/04/social-networks
 
