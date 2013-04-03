@@ -40,12 +40,11 @@ especialy the _Sucks/Rocks_ series.
 ## Current use case: Terminal-tastic
 
 If you set `download_tweets.bash` running in a cron job, with the
-permissions necessary to create/edit a file called `since.csv`, you can
-then run `functional_core_imperative_shell.rb` against it to see a list
-of links along with who tweeted them. The list's sorted into categories,
-which are easy to define in the Ruby script as a constant. It's a simple
-toy example; the code has other capacities and my long-term goals for it
-are a bit bigger.
+permissions necessary to create/edit a file called `since.csv`, you
+can then run `functional_core_imperative_shell.rb` against it to see a
+list of links along with who tweeted them. It's a simple toy example;
+the code has other capacities and my long-term goals for it are a bit
+bigger.
 
 ## Fixmes
 
