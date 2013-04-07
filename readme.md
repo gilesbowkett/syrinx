@@ -41,11 +41,11 @@ especialy the _Sucks/Rocks_ series.
 
 If you set `download_tweets.bash` running in a cron job, with the
 permissions necessary to create/edit a file called `since.csv`, you can
-then run `functional_core_imperative_shell.rb` in a cron job as well
-to auto-generate a list of links from Twitter. The list's sorted into
-categories, but uses tables and has no CSS. It's a simple toy example;
-the code has other capacities and my long-term goals for it are a bit
-bigger.
+then run `functional_core_imperative_shell.rb` in a cron job as well to
+auto-generate a list of links from Twitter. You can see example output
+at http://twitter-links.gilesb.com. The list's sorted into categories,
+but uses tables and has no CSS. It's a simple toy example; the code has
+other capacities and my long-term goals for it are a bit bigger.
 
 ## Fixmes
 
