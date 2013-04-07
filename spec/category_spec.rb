@@ -17,6 +17,11 @@ describe Category do
     @ruby.include?(@ruby_tweet).should be_true
   end
 
+  it "ignores case" do
+    @ruby_tweet.text = "I like Ruby"
+    @ruby.include?(@ruby_tweet).should be_true
+  end
+
   it "knows what doesn't fit" do
     @music.include?(@ruby_tweet).should be_false
   end
