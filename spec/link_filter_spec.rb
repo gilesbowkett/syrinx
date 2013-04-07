@@ -15,6 +15,11 @@ describe LinkFilter do
     LinkFilter.extract_link(@tweet.text).should == 'http://t.co/1KXSm9ED1G'
   end
 
+  it "removes links" do
+    @tweet.text = 'Story Tape http://t.co/1KXSm9ED1G'
+    LinkFilter.remove_link(@tweet.text).should == 'Story Tape'
+  end
+
   it "skips unnecessary punctuation" do
     @tweet.text = 'Story Tape (http://t.co/1KXSm9ED1G)'
     LinkFilter.extract_link(@tweet.text).should == 'http://t.co/1KXSm9ED1G'
