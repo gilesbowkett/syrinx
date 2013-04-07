@@ -1,0 +1,36 @@
+<html>
+<meta charset="utf-8">
+
+<table>
+
+<% tweets_with_links.each do |category, tweets| %>
+
+  <tr>
+    <td colspan=3>
+      <h2><%= category %></h2>
+    </td>
+  </tr>
+
+  <% tweets.each do |tweet| %>
+
+  <tr>
+    <% link = LinkFilter.extract_link(tweet.text) %>
+    <td>
+      <a href="<%= link %>"><%= link %></a>
+    </td>
+
+    <td>
+      @<%= tweet.username %>
+    </td>
+
+    <td>
+      <%= LinkFilter.remove_link(tweet.text) %>
+    </td>
+  </tr>
+
+  <% end %>
+<% end %>
+
+</table>
+
+</html>

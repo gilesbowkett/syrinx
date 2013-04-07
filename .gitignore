@@ -3,4 +3,5 @@
 Gemfile.lock
 *.csv
 .since_id
+public/index.html
 
