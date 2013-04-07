@@ -8,7 +8,7 @@ class TweetImporter
   end
 
   def import!
-    CSV.read("since.csv").collect do |line|
+    CSV.read("since.csv", :encoding => 'utf-8').collect do |line|
       parse(*line)
     end
   end
