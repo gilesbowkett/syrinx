@@ -50,5 +50,4 @@ are a bit bigger.
 ## Fixmes
 
 * Fixtures in code, almost
-* `CategorizesTweets` features several nested iterators `>.<`
 
