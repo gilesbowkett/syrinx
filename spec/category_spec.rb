@@ -22,6 +22,11 @@ describe Category do
     @ruby.include?(@ruby_tweet).should be_true
   end
 
+  it "ignores URLs in tweets" do
+    @ruby_tweet.text = "blah blah blah http://t.co/music12345"
+    @music.include?(@ruby_tweet).should be_false
+  end
+
   it "knows what doesn't fit" do
     @music.include?(@ruby_tweet).should be_false
   end

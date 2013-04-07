@@ -36,13 +36,6 @@ describe CategorizesTweets do
     categorized_tweets.should == {:ruby => [@ruby_tweet], :music => [@music_tweet]}
   end
 
-  # FIXME: changing Category to effect this, not CategorizesTweets
-  it "ignores URLs in tweets" do
-    @music_tweet.text = "blah blah blah http://t.co/ruby123456"
-    categorized_tweets = @categorizes_tweets.categorize!(@ruby_tweet, @music_tweet)
-    categorized_tweets.should == {:ruby => [@ruby_tweet]}
-  end
-
   context "against multiple terms" do
     before do
       @rails_tweet = Tweet.new(
